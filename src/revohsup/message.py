@@ -32,7 +32,7 @@ def send_message(
         data={
             "token": token,
             "user": user,
-            "message": "hello world",
+            "message": message,
         },
         # files={
         #     "attachment": ("image.jpg", open("your_image.jpg", "rb"), "image/jpeg"),

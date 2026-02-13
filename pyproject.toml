@@ -1,6 +1,7 @@
 [project]
 name = "revohsup"
-version = "0.0.1.post1"
+dynamic = ["version"]
+license = "MIT"
 description = "Yet another Python Pushover client"
 readme = "README.md"
 authors = [
@@ -16,8 +17,21 @@ dependencies = [
 revohsup = "revohsup.cli:app"
 
 [build-system]
-requires = ["uv_build>=0.10.0,<0.11.0"]
-build-backend = "uv_build"
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+#zip-safe = false
+include-package-data = false
+py-modules = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools_scm]
+tag_regex = "^v(?P<version>.*)$"
+version_scheme = "guess-next-dev"
+local_scheme = "node-and-date"  # or "dirty-tag" for local dev
 
 [dependency-groups]
 dev = [
